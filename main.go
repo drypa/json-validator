@@ -16,12 +16,12 @@ func main() {
 	schemaFile := os.Args[1]
 	jsonFile := os.Args[2]
 
-	schemaLoader := gojsonschema.NewReferenceLoader(schemaFile)
-	documentLoader := gojsonschema.NewReferenceLoader(jsonFile)
+	schemaLoader := gojsonschema.NewReferenceLoader(fmt.Sprintf("file://%s", schemaFile))
+	documentLoader := gojsonschema.NewReferenceLoader(fmt.Sprintf("file://%s", jsonFile))
 
 	result, err := gojsonschema.Validate(schemaLoader, documentLoader)
 	if err != nil {
-		fmt.Printf("Failed to validate document: %v", err)
+		fmt.Printf("Failed to validate document: %v\n", err)
 		os.Exit(1)
 	}
 
