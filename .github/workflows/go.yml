@@ -23,3 +23,6 @@ jobs:
 
     - name: Build
       run: go build -v ./...
+    
+    - name: Build Windows
+      run: GOOS=windows GOARCH=amd64 go build -v ./...
