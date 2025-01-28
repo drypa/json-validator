@@ -28,7 +28,7 @@ jobs:
       run: GOOS=windows GOARCH=amd64 go build -v -o out/json-validator.exe ./...
 
     - name: Upload artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-artifacts
-          path: out/
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-artifacts
+        path: out/
